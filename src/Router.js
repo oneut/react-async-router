@@ -20,9 +20,7 @@ export default class Router extends React.Component {
     }
 
     initHistory() {
-        if (this.props.history) {
-            History.setHistory(this.props.history);
-        }
+        History.initialHistory(this.props.history);
         History.setRequestCallback(this.request.bind(this));
         History.listen();
     }
