@@ -136,7 +136,7 @@ render(
 
 + `path` - Any valid URL path that [path-to-regexp](https://github.com/pillarjs/path-to-regexp) understands. Required.
 + `component` - A react component to render only when the location matches. Required.
-+ `name` - Name of `<Route>`. You can use `name` at Request API, or URL API.
++ `name` - Name of `<Route>`. You can use `name` at Request API, or URL API. Optional.
 
 ```javascript
 import { Router, Route } from 'async-react-router';
