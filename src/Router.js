@@ -62,9 +62,9 @@ export default class Router extends React.Component {
 
     addRoute(route, parent) {
         const {path, component, children, name} = route.props;
-        const normalizedRoute = Utils.cleanPath(Utils.createRoute(path, parent));
-        if (children) this.addRoutes(children, {normalizedRoute});
-        RouteMatcher.addRoute(normalizedRoute, component, name);
+        const normalizedPath                    = Utils.cleanPath(Utils.createRoute(path, parent));
+        if (children) this.addRoutes(children, {path: normalizedPath});
+        RouteMatcher.addRoute(normalizedPath, component, name);
     }
 
     componentWillMount() {
