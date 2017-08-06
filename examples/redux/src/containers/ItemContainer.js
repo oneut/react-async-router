@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Header from "../components/common/Header";
 import ItemComponent from "../components/item/ItemComponent";
-import CommentsAction from "../actions/CommentAction";
+import CommentsAction from "../actions/CommentsAction";
 
 class ItemContainer extends React.Component {
     componentDidMount() {
