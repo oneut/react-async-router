@@ -1,0 +1,7 @@
+exclude_paths:
+- "build/"
+- "coverage/"
+- "docs/"
+- "examples/"
+- "node_modules/"
+- "test/"
