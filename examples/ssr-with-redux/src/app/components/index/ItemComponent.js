@@ -25,6 +25,6 @@ export default class ItemComponent extends React.Component {
             return (<a href={this.props.item.getUrl()}>{this.props.item.title}</a>);
         }
 
-        return (<Link to={this.props.item.getUrl()}>{this.props.item.title}</Link>)
+        return (<Link to={this.props.item.getUrl()}>{this.props.item.title}</Link>);
     }
 }

@@ -62,7 +62,7 @@ export default class ItemComponent extends React.Component {
 
 
         if (this.props.comments.isEmpty()) {
-            return (<p>No comments yet.</p>)
+            return (<p>No comments yet.</p>);
         }
 
         return this.props.comments

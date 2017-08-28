@@ -28,7 +28,7 @@ class HackerNewsApi {
         if (this.cache.has("topstories")) return this.cache.get('topstories');
         const snapshot = await this.api.child('/topstories').once('value');
         const value = snapshot.val();
-        this.cache.set("topstories", value)
+        this.cache.set("topstories", value);
         return value;
     }
 
@@ -36,7 +36,7 @@ class HackerNewsApi {
         if (this.cache.has(`item/${id}`)) return this.cache.get(`item/${id}`);
         const snapshot = await this.api.child(`/item/${id}`).once('value');
         const value = snapshot.val();
-        this.cache.set(`item/${id}`, value)
+        this.cache.set(`item/${id}`, value);
         return value;
     }
 
@@ -56,7 +56,7 @@ class HackerNewsApi {
         if (this.cache.has(`/user/${id}`)) return this.cache.get(`/user/${id}`);
         const snapshot = await this.api.child(`/user/${id}`).once('value');
         const value = snapshot.val();
-        this.cache.set(`/user/${id}`, value)
+        this.cache.set(`/user/${id}`, value);
         return value;
     }
 }

@@ -29,7 +29,7 @@ ItemContainer.propTypes = {
     item: PropTypes.object.isRequired,
     comments: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired
-}
+};
 
 const mapStateToProps = (state) => ({
     item: state.item,

@@ -1,5 +1,5 @@
 {
-  "name": "redux-example-hacker-news",
+  "name": "ssr-redux-example-hacker-news",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -51,6 +51,7 @@
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
+    "lint": "eslint ./",
     "start": "NODE_ENV=development babel-node ./src/server",
     "build": "rimraf build && npm run build:app && npm run build:server && npm run build:client",
     "build:client": "NODE_ENV=production babel-node ./node_modules/webpack/bin/webpack --env=prod --config webpack.config.prod.js",
