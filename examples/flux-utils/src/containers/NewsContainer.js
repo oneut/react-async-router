@@ -5,9 +5,7 @@ import ItemsComponent from "../components/news/ItemsComponent";
 
 class NewsContainer extends React.Component {
   static getStores(props) {
-    return [
-      props.stores.itemsStore
-    ];
+    return [props.stores.itemsStore];
   }
 
   static calculateState(prevState, props) {
@@ -28,10 +26,7 @@ class NewsContainer extends React.Component {
     return (
       <div>
         <Header />
-        <ItemsComponent
-          items={this.state.items}
-          params={this.props.params}
-        />
+        <ItemsComponent items={this.state.items} params={this.props.params} />
       </div>
     );
   }

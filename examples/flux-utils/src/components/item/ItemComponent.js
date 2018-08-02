@@ -1,8 +1,8 @@
 import React from "react";
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
 import HackerNewsApi from "../../api/HackerNewsApi";
 import CommentComponent from "./CommentComponent";
-import {Link, URL} from "async-react-router";
+import { Link, URL } from "async-react-router";
 
 export default class ItemComponent extends React.Component {
   constructor(props) {
@@ -16,13 +16,14 @@ export default class ItemComponent extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({isLoading: true});
+    this.setState({ isLoading: true });
 
-    this.commentApiStream = Observable.fromPromise(HackerNewsApi.getComments(this.props.item.kids))
-      .subscribe((comments) => {
-        this.props.actions.commentsAction.sync(comments);
-        this.setState({isLoading: false});
-      });
+    this.commentApiStream = Observable.fromPromise(
+      HackerNewsApi.getComments(this.props.item.kids)
+    ).subscribe(comments => {
+      this.props.actions.commentsAction.sync(comments);
+      this.setState({ isLoading: false });
+    });
   }
 
   componentWillUnmount() {
@@ -35,21 +36,25 @@ export default class ItemComponent extends React.Component {
     return (
       <div className="container">
         <div className="news-item">
-          <h3 className="title"><a href={this.props.item.getUrl()}>{this.props.item.title}</a></h3>
+          <h3 className="title">
+            <a href={this.props.item.getUrl()}>{this.props.item.title}</a>
+          </h3>
           <div>
             <ul className="list-inline">
               <li className="score">{this.props.item.score} points</li>
-              <li className="by">by <Link
-                to={URL.name("UserPage", {userId: this.props.item.by})}>{this.props.item.by}</Link></li>
+              <li className="by">
+                by{" "}
+                <Link to={URL.name("UserPage", { userId: this.props.item.by })}>
+                  {this.props.item.by}
+                </Link>
+              </li>
               <li className="time">{this.props.item.getTimeAgo()}</li>
             </ul>
           </div>
         </div>
         <div>
           <h4>Comment {loadingComponent}</h4>
-          <ul>
-            {commentComponents}
-          </ul>
+          <ul>{commentComponents}</ul>
         </div>
       </div>
     );
@@ -57,25 +62,24 @@ export default class ItemComponent extends React.Component {
 
   getCommentComponents() {
     if (this.state.isLoading) {
-      return (<p>Loading...</p>);
+      return <p>Loading...</p>;
     }
 
-
     if (this.props.comments.isEmpty()) {
-      return (<p>No comments yet.</p>)
+      return <p>No comments yet.</p>;
     }
 
     return this.props.comments
-      .filter((comment) => !!comment.by)
-      .map((comment) => (<CommentComponent key={comment.id} comment={comment}/>));
+      .filter(comment => !!comment.by)
+      .map(comment => <CommentComponent key={comment.id} comment={comment} />);
   }
 
   getLoadingComponent() {
     if (this.state.isLoading) {
       return (
         <span>
-                    <i className="fa fa-refresh fa-spin fa-fw"/>
-                </span>
+          <i className="fa fa-refresh fa-spin fa-fw" />
+        </span>
       );
     }
 

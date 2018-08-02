@@ -1,4 +1,4 @@
-import {itemsType} from "../../storeTypes/ItemsType";
+import { itemsType } from "../../storeTypes/ItemsType";
 
 export class ItemsAction {
   constructor(dispatcher) {
@@ -9,6 +9,6 @@ export class ItemsAction {
     this.dispatcher.dispatch({
       type: itemsType.SYNC,
       items: items
-    })
+    });
   }
 }

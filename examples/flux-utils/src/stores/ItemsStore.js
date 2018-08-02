@@ -1,6 +1,6 @@
 import Immutable from "immutable";
-import {ReduceStore} from "flux/utils";
-import {itemsType} from "../storeTypes/ItemsType";
+import { ReduceStore } from "flux/utils";
+import { itemsType } from "../storeTypes/ItemsType";
 import Item from "../models/Item";
 
 export class ItemsStore extends ReduceStore {

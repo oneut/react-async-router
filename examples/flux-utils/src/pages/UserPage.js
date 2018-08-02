@@ -3,9 +3,9 @@ import React from "react";
 import UserContainer from "../containers/UserContainer";
 import HackerNewsApi from "../api/HackerNewsApi";
 import NotFoundPage from "./NotFoundPage";
-import {newUserDispatcher} from "../dispatchers/UserDispatcher";
-import {UserAction} from "../actions/user/UserAction";
-import {UserStore} from "../stores/UserStore";
+import { newUserDispatcher } from "../dispatchers/UserDispatcher";
+import { UserAction } from "../actions/user/UserAction";
+import { UserStore } from "../stores/UserStore";
 
 export default class UserPage extends React.Component {
   static initialPropsWillGet() {
@@ -23,7 +23,7 @@ export default class UserPage extends React.Component {
   }
 
   render() {
-    if (!this.props.user) return <NotFoundPage/>;
+    if (!this.props.user) return <NotFoundPage />;
 
     const userDispatcher = newUserDispatcher();
     const userAction = new UserAction(userDispatcher);
@@ -36,6 +36,6 @@ export default class UserPage extends React.Component {
       }
     };
 
-    return <UserContainer {...params} params={this.props.params}/>;
+    return <UserContainer {...params} params={this.props.params} />;
   }
 }

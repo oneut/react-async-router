@@ -1,4 +1,4 @@
-import {commentsType} from "../../storeTypes/CommentsType";
+import { commentsType } from "../../storeTypes/CommentsType";
 
 export class CommentsAction {
   constructor(dispatcher) {
@@ -9,6 +9,6 @@ export class CommentsAction {
     this.dispatcher.dispatch({
       type: commentsType.SYNC,
       comments: comments
-    })
+    });
   }
 }

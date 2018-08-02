@@ -3,9 +3,9 @@ import React from "react";
 import NewsContainer from "../containers/NewsContainer";
 import HackerNewsApi from "../api/HackerNewsApi";
 import NotFoundPage from "./NotFoundPage";
-import {newNewsDispatcher} from "../dispatchers/NewsDispatcher"
-import {ItemsAction} from "../actions/news/ItemsAction";
-import {ItemsStore} from "../stores/ItemsStore";
+import { newNewsDispatcher } from "../dispatchers/NewsDispatcher";
+import { ItemsAction } from "../actions/news/ItemsAction";
+import { ItemsStore } from "../stores/ItemsStore";
 
 export default class NewsPage extends React.Component {
   static initialPropsWillGet() {
@@ -33,7 +33,7 @@ export default class NewsPage extends React.Component {
   }
 
   render() {
-    if (!this.props.items.length) return <NotFoundPage/>;
+    if (!this.props.items.length) return <NotFoundPage />;
 
     const newsDispatcher = newNewsDispatcher();
     const itemsAction = new ItemsAction(newsDispatcher);
@@ -46,6 +46,6 @@ export default class NewsPage extends React.Component {
       }
     };
 
-    return <NewsContainer {...params} params={this.props.params}/>;
+    return <NewsContainer {...params} params={this.props.params} />;
   }
 }

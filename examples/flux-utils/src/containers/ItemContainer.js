@@ -1,14 +1,11 @@
 import React from "react";
-import {Container} from "flux/utils";
+import { Container } from "flux/utils";
 import Header from "../components/common/Header";
 import ItemComponent from "../components/item/ItemComponent";
 
 class ItemContainer extends React.Component {
   static getStores(props) {
-    return [
-      props.stores.commentsStore,
-      props.stores.itemStore
-    ];
+    return [props.stores.commentsStore, props.stores.itemStore];
   }
 
   static calculateState(prevState, props) {
@@ -29,7 +26,7 @@ class ItemContainer extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header />
         <ItemComponent
           actions={this.props.actions}
           comments={this.state.comments}

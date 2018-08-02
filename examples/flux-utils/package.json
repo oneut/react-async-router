@@ -26,8 +26,8 @@
     "start":       "react-scripts start",
     "build":       "react-scripts build",
     "eject":       "react-scripts eject",
-    "fix:dry-run": "prettier src/**/*.js",
-    "fix":         "prettier --write src/**/*.js",
+    "eslint":      "eslint ./src",
+    "eslint:fix":  "eslint --fix ./src",
     "test":        "react-scripts test"
   },
   "homepage": "."

@@ -1,7 +1,7 @@
 import Immutable from "immutable";
-import {ReduceStore} from "flux/utils";
+import { ReduceStore } from "flux/utils";
 import Comment from "../models/Comment";
-import {commentsType} from "../storeTypes/CommentsType";
+import { commentsType } from "../storeTypes/CommentsType";
 
 export class CommentsStore extends ReduceStore {
   getInitialState() {

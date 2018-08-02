@@ -3,9 +3,9 @@ import React from "react";
 import IndexContainer from "../containers/IndexContainer";
 import HackerNewsApi from "../api/HackerNewsApi";
 import NotFoundPage from "./NotFoundPage";
-import {ItemsAction} from "../actions/index/ItemsAction";
-import {newIndexDispatcher} from "../dispatchers/IndexDispatcher";
-import {ItemsStore} from "../stores/ItemsStore";
+import { ItemsAction } from "../actions/index/ItemsAction";
+import { newIndexDispatcher } from "../dispatchers/IndexDispatcher";
+import { ItemsStore } from "../stores/ItemsStore";
 
 export default class IndexPage extends React.Component {
   static initialPropsWillGet() {
@@ -23,7 +23,7 @@ export default class IndexPage extends React.Component {
   }
 
   render() {
-    if (!this.props.items.length) return <NotFoundPage/>;
+    if (!this.props.items.length) return <NotFoundPage />;
 
     const indexDispatcher = newIndexDispatcher();
     const itemsStore = new ItemsStore(indexDispatcher);

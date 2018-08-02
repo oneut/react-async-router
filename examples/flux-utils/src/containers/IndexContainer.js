@@ -5,9 +5,7 @@ import ItemsComponent from "../components/index/ItemsComponent";
 
 class IndexContainer extends React.Component {
   static getStores(props) {
-    return [
-      props.stores.itemsStore
-    ];
+    return [props.stores.itemsStore];
   }
 
   static calculateState(prevState, props) {
@@ -28,9 +26,7 @@ class IndexContainer extends React.Component {
     return (
       <div>
         <Header />
-        <ItemsComponent
-          items={this.state.items}
-        />
+        <ItemsComponent items={this.state.items} />
       </div>
     );
   }

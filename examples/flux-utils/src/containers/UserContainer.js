@@ -1,13 +1,11 @@
 import React from "react";
-import {Container} from "flux/utils";
+import { Container } from "flux/utils";
 import Header from "../components/common/Header";
 import UserComponent from "../components/user/UserComponent";
 
 class UserContainer extends React.Component {
   static getStores(props) {
-    return [
-      props.stores.userStore
-    ];
+    return [props.stores.userStore];
   }
 
   static calculateState(prevState, props) {
@@ -27,8 +25,8 @@ class UserContainer extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
-        <UserComponent user={this.state.user}/>
+        <Header />
+        <UserComponent user={this.state.user} />
       </div>
     );
   }
