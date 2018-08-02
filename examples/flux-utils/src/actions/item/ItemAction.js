@@ -1,11 +1,14 @@
-import ItemDispatcher from "../../dispatchers/ItemDispatcher";
-import ItemType from "../../storeTypes/ItemType";
+import {itemType} from "../../storeTypes/ItemType";
 
-export default class ItemAction {
-    static newInstance(attributes) {
-        ItemDispatcher.dispatch({
-            type: ItemType.NEW_INSTANCE,
-            attributes: attributes
-        });
-    }
+export class ItemAction {
+  constructor(dispatcher) {
+    this.dispatcher = dispatcher;
+  }
+
+  newInstance(attributes) {
+    this.dispatcher.dispatch({
+      type: itemType.NEW_INSTANCE,
+      attributes: attributes
+    });
+  }
 }
