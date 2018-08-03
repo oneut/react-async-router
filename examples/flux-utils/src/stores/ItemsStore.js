@@ -3,7 +3,7 @@ import { ReduceStore } from "flux/utils";
 import { itemsType } from "../storeTypes/ItemsType";
 import Item from "../models/Item";
 
-export class ItemsStore extends ReduceStore {
+class ItemsStore extends ReduceStore {
   getInitialState() {
     return Immutable.List();
   }
@@ -21,4 +21,8 @@ export class ItemsStore extends ReduceStore {
         return state;
     }
   }
+}
+
+export function newItemsStore(dispatcher) {
+  return new ItemsStore(dispatcher);
 }

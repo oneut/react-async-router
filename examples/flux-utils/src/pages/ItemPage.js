@@ -3,11 +3,11 @@ import React from "react";
 import ItemContainer from "../containers/ItemContainer";
 import HackerNewsApi from "../api/HackerNewsApi";
 import NotFoundPage from "./NotFoundPage";
-import { CommentsAction } from "../actions/item/CommentsAction";
-import { ItemAction } from "../actions/item/ItemAction";
 import { newItemDispatcher } from "../dispatchers/ItemDispatcher";
-import { ItemStore } from "../stores/ItemStore";
-import { CommentsStore } from "../stores/CommentsStore";
+import { newCommentsAction } from "../actions/item/CommentsAction";
+import { newItemAction } from "../actions/item/ItemAction";
+import { newItemStore } from "../stores/ItemStore";
+import { newCommentsStore } from "../stores/CommentsStore";
 
 export default class ItemPage extends React.Component {
   static initialPropsWillGet() {
@@ -28,10 +28,10 @@ export default class ItemPage extends React.Component {
     if (!this.props.item) return <NotFoundPage />;
 
     const itemDispatcher = newItemDispatcher();
-    const itemAction = new ItemAction(itemDispatcher);
-    const itemStore = new ItemStore(itemDispatcher);
-    const commentsAction = new CommentsAction(itemDispatcher);
-    const commentsStore = new CommentsStore(itemDispatcher);
+    const itemAction = newItemAction(itemDispatcher);
+    const itemStore = newItemStore(itemDispatcher);
+    const commentsAction = newCommentsAction(itemDispatcher);
+    const commentsStore = newCommentsStore(itemDispatcher);
     itemAction.newInstance(this.props.item);
 
     const params = {

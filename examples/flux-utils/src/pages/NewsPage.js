@@ -4,8 +4,8 @@ import NewsContainer from "../containers/NewsContainer";
 import HackerNewsApi from "../api/HackerNewsApi";
 import NotFoundPage from "./NotFoundPage";
 import { newNewsDispatcher } from "../dispatchers/NewsDispatcher";
-import { ItemsAction } from "../actions/news/ItemsAction";
-import { ItemsStore } from "../stores/ItemsStore";
+import { newItemsAction } from "../actions/news/ItemsAction";
+import { newItemsStore } from "../stores/ItemsStore";
 
 export default class NewsPage extends React.Component {
   static initialPropsWillGet() {
@@ -36,8 +36,8 @@ export default class NewsPage extends React.Component {
     if (!this.props.items.length) return <NotFoundPage />;
 
     const newsDispatcher = newNewsDispatcher();
-    const itemsAction = new ItemsAction(newsDispatcher);
-    const itemsStore = new ItemsStore(newsDispatcher);
+    const itemsAction = newItemsAction(newsDispatcher);
+    const itemsStore = newItemsStore(newsDispatcher);
     itemsAction.sync(this.props.items);
 
     const params = {

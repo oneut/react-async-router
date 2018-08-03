@@ -1,6 +1,6 @@
 import { commentsType } from "../../storeTypes/CommentsType";
 
-export class CommentsAction {
+class CommentsAction {
   constructor(dispatcher) {
     this.dispatcher = dispatcher;
   }
@@ -11,4 +11,8 @@ export class CommentsAction {
       comments: comments
     });
   }
+}
+
+export function newCommentsAction(dispatcher) {
+  return new CommentsAction(dispatcher);
 }

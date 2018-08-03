@@ -2,7 +2,7 @@ import { ReduceStore } from "flux/utils";
 import { userType } from "../storeTypes/UserType";
 import User from "../models/User";
 
-export class UserStore extends ReduceStore {
+class UserStore extends ReduceStore {
   getInitialState() {
     return null;
   }
@@ -15,4 +15,8 @@ export class UserStore extends ReduceStore {
         return state;
     }
   }
+}
+
+export function newUserStore(dispatcher) {
+  return new UserStore(dispatcher);
 }

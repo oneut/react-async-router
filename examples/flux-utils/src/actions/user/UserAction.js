@@ -1,6 +1,6 @@
 import { userType } from "../../storeTypes/UserType";
 
-export class UserAction {
+class UserAction {
   constructor(dispatcher) {
     this.dispatcher = dispatcher;
   }
@@ -11,4 +11,8 @@ export class UserAction {
       attributes: attributes
     });
   }
+}
+
+export function newUserAction(dispatcher) {
+  return new UserAction(dispatcher);
 }

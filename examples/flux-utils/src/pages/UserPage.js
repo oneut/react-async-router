@@ -4,8 +4,8 @@ import UserContainer from "../containers/UserContainer";
 import HackerNewsApi from "../api/HackerNewsApi";
 import NotFoundPage from "./NotFoundPage";
 import { newUserDispatcher } from "../dispatchers/UserDispatcher";
-import { UserAction } from "../actions/user/UserAction";
-import { UserStore } from "../stores/UserStore";
+import { newUserAction } from "../actions/user/UserAction";
+import { newUserStore } from "../stores/UserStore";
 
 export default class UserPage extends React.Component {
   static initialPropsWillGet() {
@@ -26,8 +26,8 @@ export default class UserPage extends React.Component {
     if (!this.props.user) return <NotFoundPage />;
 
     const userDispatcher = newUserDispatcher();
-    const userAction = new UserAction(userDispatcher);
-    const userStore = new UserStore(userDispatcher);
+    const userAction = newUserAction(userDispatcher);
+    const userStore = newUserStore(userDispatcher);
     userAction.newInstance(this.props.user);
 
     const params = {

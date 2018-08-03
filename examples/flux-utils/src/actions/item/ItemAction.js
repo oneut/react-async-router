@@ -1,6 +1,6 @@
 import { itemType } from "../../storeTypes/ItemType";
 
-export class ItemAction {
+class ItemAction {
   constructor(dispatcher) {
     this.dispatcher = dispatcher;
   }
@@ -11,4 +11,8 @@ export class ItemAction {
       attributes: attributes
     });
   }
+}
+
+export function newItemAction(dispatcher) {
+  return new ItemAction(dispatcher);
 }

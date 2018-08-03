@@ -3,7 +3,7 @@ import { ReduceStore } from "flux/utils";
 import Comment from "../models/Comment";
 import { commentsType } from "../storeTypes/CommentsType";
 
-export class CommentsStore extends ReduceStore {
+class CommentsStore extends ReduceStore {
   getInitialState() {
     return Immutable.List();
   }
@@ -21,4 +21,8 @@ export class CommentsStore extends ReduceStore {
         return state;
     }
   }
+}
+
+export function newCommentsStore(dispatcher) {
+  return new CommentsStore(dispatcher);
 }
